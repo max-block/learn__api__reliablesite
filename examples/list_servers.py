@@ -39,7 +39,7 @@ def main():
     for server_item in servers_list:
         res = service.GetServersDetails(API_KEY, API_PASSWORD, server_item.id)
         details = ServerDetails.from_zeep_object(res)
-        print(details)
+        print(details.dict() | server_item.dict())
 
 
 if __name__ == "__main__":
